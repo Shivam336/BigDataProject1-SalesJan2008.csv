@@ -1,0 +1,96 @@
+package WordCountProgram;
+
+import java.util.Collections;
+import java.util.TreeMap;
+
+public class Mainline {
+
+	public static void main(String[] args) {
+
+
+		TreeMap<Double,String> temp=new TreeMap<Double,String>(Collections.reverseOrder());
+		TreeMap<Double,String> temp2=new TreeMap<Double,String>(Collections.reverseOrder());
+		TreeMap<Double,String> temp11=new TreeMap<Double,String>(Collections.reverseOrder());
+		TreeMap<Double,String> temp19=new TreeMap<Double,String>(Collections.reverseOrder());
+		TreeMap<Double,String> temp15=new TreeMap<Double,String>(Collections.reverseOrder());
+		TreeMap<Double,String> tempMain=new TreeMap<Double,String>(Collections.reverseOrder());
+		temp.put(20.2, "20110405");
+		temp.put(20.2,"20110505");
+		temp.put(66.8,"20110609");
+		temp.put(66.9,"20110608");
+		temp.put(66.7,"20190910");
+		temp.put(75.7,"20190310");
+		temp.put(65.6,"20190910");
+		temp.put(65.6,"20190910");
+		temp.put(78.6,"20150910");
+		temp.put(80.6,"20151210");
+		temp.put(79.6,"20110710");
+		
+		System.out.println("h "+temp);
+		
+		for(Double i:temp.keySet()) {
+			String vale =temp.get(i);
+			String ds=vale.substring(0,4);
+
+			if(temp2.containsValue("2011")==false)
+			temp2.put(i, ds);
+			
+			else if(temp2.containsValue("2019")==false)
+				temp2.put(i, ds);
+			
+			else if(temp2.containsValue("2015")==false)
+				temp2.put(i, ds);
+				
+		}
+		System.out.println("g "+temp2);
+		
+		for(Double j:temp2.keySet()) {
+			String vale2=temp2.get(j);
+			
+			if(vale2.equals("2011")) {
+				System.out.println("1 "+j+" "+vale2);
+				temp11.put(j,vale2);
+				
+				
+			}
+			
+			else if(vale2.equals("2019")) {
+				System.out.println("2 "+j+" "+vale2);
+				temp19.put(j,vale2);
+			}
+			
+			else if(vale2.equals("2015")) {
+				System.out.println("4 "+j+" "+vale2);
+				temp15.put(j,vale2);
+			}
+			
+			else {
+				System.out.println("3");
+			}
+		}
+		
+		
+		
+		System.out.println("2011 "+temp11);
+		System.out.println("2015 "+temp15);
+		System.out.println("2019 "+temp19);
+		
+		
+		//For 15
+		double va15=temp15.firstKey();
+		String va215=temp15.get(va15);
+		tempMain.put(va15, va215);
+		
+		//For 11
+		double va11=temp11.firstKey();
+		String va211=temp11.get(va11);
+		tempMain.put(va11, va211);
+		
+		//For 11
+		double va19=temp19.firstKey();
+		String va219=temp19.get(va19);
+		tempMain.put(va19, va219);
+		
+		System.out.println("Main "+tempMain);
+	}
+}
